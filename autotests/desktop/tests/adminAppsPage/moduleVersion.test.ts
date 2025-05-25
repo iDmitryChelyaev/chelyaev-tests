@@ -1,5 +1,5 @@
-import { test, expect } from '../customTest';
-import { urls } from '../constants/mainData';
+import { test, expect } from '../../customTest';
+import { urls } from '../../constants/mainData';
 
 test.describe('Module version', () => {
   test('Check module version', async ({
@@ -18,7 +18,7 @@ test.describe('Module version', () => {
       }).toPass();
     });
 
-    await test.step('Checkout to admin apps page', async () => {
+    await test.step('Go to admin apps page', async () => {
       const sideBarMenu = customPage.SideBarMenu;
       await sideBarMenu.clickSideBarButton('Администрирование');
       await expect(() => {

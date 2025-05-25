@@ -1,11 +1,10 @@
-import { test, expect } from '../customTest';
-import { urls } from '../constants/mainData';
+import { test, expect } from '../../customTest';
+import { expectedOrderListFromSidebar, urls } from '../../constants/mainData';
 
 test.describe('Sections', () => {
   test('Check sections quantity. Setting section should not be exist', async ({
     loginPage,
     customPage,
-    adminAppsPage,
     page,
   }) => {
     await test.step('Authorization from login form', async () => {
@@ -28,6 +27,11 @@ test.describe('Sections', () => {
       await expect(async () => {
         expect(await sideBarMenu.isSectionExist('Настройки')).toBeFalsy();
       }).toPass();
+    });
+
+    await test.step('Checking section order', async () => {
+      const allTexts = await sideBarMenu.getAllSectionTexts();
+      expect(allTexts).toEqual(expectedOrderListFromSidebar);
     });
   });
 });

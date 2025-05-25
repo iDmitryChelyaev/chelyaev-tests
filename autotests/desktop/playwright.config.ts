@@ -1,4 +1,4 @@
-import base from "../../../playwright.config"
+import base from "../../playwright.config"
 import { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
